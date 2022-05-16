@@ -1,9 +1,6 @@
 package com.example.example.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,9 +10,10 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "districts")
+@ToString
 public class District {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
-    public String name;
+    private Integer id;
+    private String name;
 }

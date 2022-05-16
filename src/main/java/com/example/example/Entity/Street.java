@@ -1,9 +1,6 @@
 package com.example.example.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,15 +10,16 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "streets")
+@ToString
 public class Street {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
-    public String name;
+    private Integer id;
+    private String name;
+    private String description;
+    private StreetStatus status;
+    private Integer districtId;
     @ManyToOne
-    @JoinColumn(name = "district_id")
-    public District district;
-    public String description;
-    public StreetStatus status;
-
+    @JoinColumn(name = "districtId", insertable = false, updatable = false)
+    private District district;
 }
